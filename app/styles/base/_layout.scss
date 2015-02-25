@@ -1,0 +1,42 @@
+.main-view {
+	width: 100%;
+	height: 100vh;
+}
+
+.collapsed {
+	padding: 0;
+}
+
+.left-collapse {
+	padding-left: 0;
+}
+
+.right-collapse {
+	padding-right: 0;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.sidebar {
+	float: left;
+}
+
+.main-view {
+	padding-left: $sidebar-width;
+}
+
+.thread-area, .posting-area {
+	float: left;
+}
+
+.thread-area {
+	width: 40%;
+	min-height: 100vh;
+	border-right: solid 1px #ccc;
+}
+
+.posting-area {
+	width: 60%;
+}

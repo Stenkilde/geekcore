@@ -1,0 +1,30 @@
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="color"],
+textarea {
+	box-shadow: none;
+	border: none;
+}
+
+
+.posting-area {
+	input, textarea {
+		margin: 0;
+		border-bottom: 1px solid #ccc;
+	}
+	input {
+		height: 100px;
+		font-size: 35px;
+	}
+}

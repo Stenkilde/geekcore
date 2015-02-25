@@ -1,0 +1,13 @@
+.login {
+	display: flex;
+	// Apply this to parent and add display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100vh;
+	.login-content {
+		width: 300px;
+	}
+}
