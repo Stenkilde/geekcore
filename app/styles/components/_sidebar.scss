@@ -1,5 +1,20 @@
 .sidebar {
+	position: relative;
+	z-index: 2;
 	width: $sidebar-width;
 	height: 100vh;
 	background: $primary-dark;
+	text-align: center;
+	.logo {
+		width: 70%;
+		margin: 10px auto;
+		outline: none;
+		a {
+			display: block;
+			outline: none;
+		}
+	}
+	.no-button {
+		font-size: 32px;
+	}
 }

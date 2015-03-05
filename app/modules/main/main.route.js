@@ -21,6 +21,28 @@
         controllerAs: 'main'
       };
 
+      var childPost = {
+        name: 'main.childPost',
+        url: 'post',
+        views: {
+          'post@main': {
+            templateUrl: 'modules/main/main.post.html'
+          }
+        }
+      };
+
+      var childThread = {
+        name: 'main.childThread',
+        url: 'thread',
+        views: {
+          'thread@main': {
+            templateUrl: 'modules/main/main.thread.html'
+          }
+        }
+      };
+
       $stateProvider.state(Main);
+      $stateProvider.state(childPost);
+      $stateProvider.state(childThread);
     });
 })();
