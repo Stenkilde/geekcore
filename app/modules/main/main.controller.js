@@ -13,25 +13,12 @@
 		.controller('Main', Main);
 
 	/* @ngInject */
-	function Main($scope, Post) {
+	function Main(Thread) {
 		/*jshint validthis: true */
 		var vm = this;
+		vm.threads = threads;
 
-
-		$scope.posts = Post.all;
-
-		$scope.post = {threadTitle: '', threadBody: ''};
-
-		$scope.submitPost = function () {
-			Post.create($scope.post).then(function () {
-				$scope.post = {threadTitle: '', threadBody: ''};
-			});
-		};
-
-		$scope.deletePost = function (post) {
-			Post.delete(post);
-		};
-
+		threads = Thread;
 
 		activate();
 

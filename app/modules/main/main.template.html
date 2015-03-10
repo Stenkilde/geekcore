@@ -3,43 +3,10 @@
 		<div class="fluid-row">
 			<div class="small-12 columns collapsed">
 				<ul class="thread-list">
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
+					<li class="thread-list__item" ng-repeat="post in thread">
+						<h4 class="title">{{post}}</h4>
+						<span class="meta">Updated 2 minutes ago by {{post.user}} | 20 comments</span>
 					</li>
-					<li class="thread-list__item" ui-sref="main.childThread">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-					<li class="thread-list__item">
-						<h4 class="title">I'm a thread header</h4>
-						<span class="meta">Updated 2 minutes ago by User | 20 comments</span>
-					</li>
-
 				</ul>
 			</div>
 		</div>
@@ -48,3 +15,4 @@
 	<div ui-view="thread"></div>
 
 </div>
+
