@@ -13,12 +13,19 @@
 		.controller('Main', Main);
 
 	/* @ngInject */
-	function Main(Thread) {
+	function Main($scope, Post) {
 		/*jshint validthis: true */
 		var vm = this;
-		vm.threads = threads;
 
-		threads = Thread;
+		$scope.posts = [];
+		$scope.post = {subject: '', body_text: ''};
+
+		$scope.submitPost = function() {
+			Post.save($scope.post, function(ref) {
+				$scope.posts[ref.name] = $scope.post;
+				$scope.post = {subject: '', body_text: ''};
+			});
+		};
 
 		activate();
 

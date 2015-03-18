@@ -20,19 +20,19 @@
 			{
 				title: "Title 1",
 				body_text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, officia."
+			},
+			{
+				title: "Robert Downey Jr.",
+				body_text: "Tony Stark / Iron Man"
+			},
+			{
+				title: "Chris Evans",
+				body_text: "Steve Rogers / Captain America"
 			}
 		];
 
 		return Threads;
 
-
-		var service = {
-			//method references
-		};
-
-		return service;
-
-		//function method() { };
 	};
 
 })();
