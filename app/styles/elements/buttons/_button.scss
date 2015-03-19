@@ -7,3 +7,14 @@ button.no-button, .button.no-button {
 		color: $primary-color;
 	}
 }
+
+button, .button {
+	&.button-bottom {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		font-size: 18px;
+		padding: 0 60px;
+		line-height: 40px;
+	}
+}

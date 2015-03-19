@@ -3,16 +3,13 @@
         <form ng-submit="submitPost()">
             <div class="small-12 columns collapsed">
                 <input type="text" ng-model="post.subject" placeholder="Subject"/>
-                <div class="fluid-row">
-
-                </div>
                 <textarea placeholder="Write your body text here" ng-model="post.body_text" rows="10"></textarea>
+                <input class="button button-bottom" type="submit" value="Add post"/>
             </div>
             <div class="small-12 columns preview-area">
-                <h1>{{subject}}</h1>
-                <p>{{body_text}}</p>
+                <h1>{{post.subject}}</h1>
+                <p>{{post.body_text}}</p>
             </div>
-            <input type="submit" value="Add post"/>
         </form>
     </div>
 </div>

@@ -3,8 +3,8 @@
 		<div class="fluid-row">
 			<div class="small-12 columns collapsed">
 				<ul class="thread-list">
-					<li class="thread-list__item" ng-repeat="(threadId, post) in posts">
-						<h4 class="title">{{post.subject}}</h4>
+					<li class="thread-list__item" "post in posts">
+						<h4 class="title">{{main.post.subject}}</h4>
 						<span class="meta">Updated 2 minutes ago by | 20 comments</span>
 					</li>
 				</ul>
@@ -13,6 +13,4 @@
 	</div>
 	<div ui-view="post"></div>
 	<div ui-view="thread"></div>
-
 </div>
-

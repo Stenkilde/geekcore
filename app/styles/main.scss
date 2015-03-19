@@ -62,3 +62,10 @@
 @import "../modules/login/login";
 @import "../modules/admin/admin";
 /* ---> Do not delete this comment (Modules) <--- */
+
+
+@media #{$small-only} {
+    body {
+        display: none;
+    }
+}

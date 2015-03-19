@@ -24,8 +24,7 @@
 			Post.save($scope.post, function(ref) {
 				$scope.posts[ref.name] = $scope.post;
 				$scope.post = {subject: '', body_text: ''};
-			});
-		};
+		});
 
 		activate();
 
