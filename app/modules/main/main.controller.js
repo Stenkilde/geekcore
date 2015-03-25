@@ -17,14 +17,18 @@
 		/*jshint validthis: true */
 		var vm = this;
 
-		$scope.posts = [];
-		$scope.post = {subject: '', body_text: ''};
+		vm.posts = [];
+		vm.post = {subject: '', body_text: ''};
 
-		$scope.submitPost = function() {
-			Post.save($scope.post, function(ref) {
-				$scope.posts[ref.name] = $scope.post;
-				$scope.post = {subject: '', body_text: ''};
-		});
+		vm.submitPost = function () {
+			Post.create(vm.post).then(function () {
+				vm.post = {subject: '', body_text: ''};
+			});
+		};
+
+		vm.deletePost = function (post) {
+			Post.delete(post);
+		};
 
 		activate();
 
