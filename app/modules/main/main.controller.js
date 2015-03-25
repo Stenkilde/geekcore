@@ -13,11 +13,11 @@
 		.controller('Main', Main);
 
 	/* @ngInject */
-	function Main($scope, Post) {
+	function Main(Post) {
 		/*jshint validthis: true */
 		var vm = this;
 
-		vm.posts = [];
+		vm.posts = Post.all;
 		vm.post = {subject: '', body_text: ''};
 
 		vm.submitPost = function () {
