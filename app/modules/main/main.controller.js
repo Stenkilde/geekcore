@@ -22,7 +22,8 @@
 
 		vm.submitPost = function () {
 			Post.create(vm.post).then(function () {
-				vm.post = {subject: '', body_text: ''};
+				//vm.post = {subject: '', body_text: ''};
+				$location.path('/posts/' + ref.name());
 			});
 		};
 
