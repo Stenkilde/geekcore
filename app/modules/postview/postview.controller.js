@@ -13,7 +13,7 @@
 		.controller('Postview', Postview);
 
 	/* @ngInject */
-	function Postview($stateParams) {
+	function Postview($stateParams, Post) {
 		/*jshint validthis: true */
 		var vm = this;
 

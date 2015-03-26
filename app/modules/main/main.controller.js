@@ -13,7 +13,7 @@
 		.controller('Main', Main);
 
 	/* @ngInject */
-	function Main(Post) {
+	function Main(Post, $location) {
 		/*jshint validthis: true */
 		var vm = this;
 
@@ -21,8 +21,7 @@
 		vm.post = {subject: '', body_text: ''};
 
 		vm.submitPost = function () {
-			Post.create(vm.post).then(function () {
-				//vm.post = {subject: '', body_text: ''};
+			Post.create(vm.post).then(function(ref) {
 				$location.path('/posts/' + ref.name());
 			});
 		};
