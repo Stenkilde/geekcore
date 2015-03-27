@@ -401,7 +401,7 @@ module.exports = function (grunt) {
 				dest: '.tmp/concat/scripts/templates.js',
 				options: {
 					usemin: 'scripts/scripts.js',
-					module: 'oompApp',
+					module: 'roadtodh',
 					htmlmin: {
 						collapseBooleanAttributes:      false,
 						collapseWhitespace:             false,
@@ -417,7 +417,7 @@ module.exports = function (grunt) {
 		},
 		ngconstant: {
 			options: {
-				name: 'oompApp',
+				name: 'roadtodh',
 				dest: '.tmp/concat/scripts/enviroment.js',
 				constants: {
 					APP_ENV: 'development'
