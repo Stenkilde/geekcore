@@ -26,6 +26,8 @@
 			});
 		};
 
+		console.log(Post.all)
+
 		vm.deletePost = function (post) {
 			Post.delete(post);
 		};

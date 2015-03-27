@@ -1,4 +1,4 @@
-// Generated on 2014-10-07 using generator-nodes 0.0.5
+// Generated on 2015-02-24 using generator-nodes 0.5.5
 'use strict';
 
 // # Globbing
@@ -20,13 +20,11 @@ var bowerIgnore = [
 	'angulartics-mixpanel',
 	'angulartics-scroll',
 	'angulartics-segmentio',
-	'angulartics-cnzz',
 	'angulartics-splunk',
 	'angulartics-woopra',
 	'angulartics-marketo',
 	'angulartics-intercom',
-	'angulartics-piwik',
-	'animate.css-scss'
+	'angulartics-piwik'
 ];
 
 
@@ -56,14 +54,15 @@ module.exports = function (grunt) {
 
 		// Watches files for changes and runs tasks based on the changed files
 		watch: {
-			// assemble_all: {
-			//     files: ['!<%= yeoman.app %>/styleguide/layouts/angular.html', '<%= yeoman.app %>/styleguide/{includes,layouts}/**/*.html'],
-			//     tasks: ['assemble']
-			// },
-			// assemble_pages: {
-			//     files: ['<%= yeoman.app %>/styleguide/pages/**/*.{html,md}'],
-			//     tasks: ['assemble']
-			// },
+			// Disabled until Assemble.io handlebars-helpers are updated
+			//assemble_all: {
+			//  files: ['!<%= yeoman.app %>/styleguide/layouts/angular.html', '<%= yeoman.app %>/styleguide/{includes,layouts}/**/*.html'],
+			//  tasks: ['assemble']
+			//},
+			//assemble_pages: {
+			//  files: ['<%= yeoman.app %>/styleguide/pages/**/*.{html,md}'],
+			//  tasks: ['assemble']
+			//},
 			bower: {
 				files: ['bower.json'],
 				tasks: ['wiredep']
@@ -85,7 +84,7 @@ module.exports = function (grunt) {
 				files: [
 					'<%= yeoman.app %>/styles/**/*.{scss,sass}',
 					'<%= yeoman.app %>/common/**/*.{scss,sass}',
-					'<%= yeoman.app %>/modules/**/**/*.{scss,sass}'
+					'<%= yeoman.app %>/modules/**/*.{scss,sass}',
 				],
 				tasks: ['sass:server', 'autoprefixer']
 			},
@@ -115,7 +114,7 @@ module.exports = function (grunt) {
 		assemble: {
 			options: {
 				marked: {
-					highlight: function(code, lang) {
+					highlight: function (code, lang) {
 						return require('highlight.js').highlightAuto(code).value;
 					}
 				},
@@ -149,9 +148,9 @@ module.exports = function (grunt) {
 		// The actual grunt server settings
 		connect: {
 			options: {
-				port: 9001,
+				port: 9000,
 				hostname: '0.0.0.0',
-				livereload: 35730,
+				livereload: 35729,
 				middleware: function (connect) {
 					return [
 						require('connect-modrewrite') (['!(\\..+)$ /index.html [L]']),
@@ -170,7 +169,7 @@ module.exports = function (grunt) {
 						'.tmp',
 						'rewrite|/bower_components|./bower_components',
 						'rewrite|/app/styles|./app/styles', // for sourcemaps
-						'<%= yeoman.app %>'
+						''
 					]
 				}
 			},
@@ -178,7 +177,7 @@ module.exports = function (grunt) {
 				options: {
 					open: false,
 					keepalive: false,
-					base: '<%= yeoman.dist %>',
+					base: '',
 					middleware: function (connect) {
 						return [
 							require('connect-modrewrite') (['!(\\..+)$ /index.html [L]']),
@@ -211,6 +210,7 @@ module.exports = function (grunt) {
 					dot: true,
 					src: [
 						'.tmp',
+						//'<%= yeoman.dist %>/**/*.*',
 						'<%= yeoman.dist %>/{,*/}*',
 						'!<%= yeoman.dist %>/.git*'
 					]
@@ -243,7 +243,7 @@ module.exports = function (grunt) {
 			},
 			app: {
 				src: ['<%= yeoman.app %>/index.html'],
-				ignorePath:  /\.\.\//
+				ignorePath: /\.\.\//
 			},
 			sass: {
 				src: ['<%= yeoman.app %>/styles/main.scss'],
@@ -255,8 +255,7 @@ module.exports = function (grunt) {
 		// Compiles Sass to CSS and generates necessary files if requested
 		sass: {
 			options: {
-				sourceComments: 'map',
-				//        sourceMap: true,
+				sourcemap: true,
 				imagePath: '<%= yeoman.app %>/assets/images/'
 			},
 			server: {
@@ -266,21 +265,23 @@ module.exports = function (grunt) {
 				files: {
 					'.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
 				}
+			},
+			styleguide: {
+				files: {
+					'<%= yeoman.app %>/styleguide/assets/css/docs.css': '<%= yeoman.app %>/styleguide/assets/docs.scss'
+				}
 			}
-			/*styleguide: {
-			 files: {
-			 '<%= yeoman.app %>/styleguide/assets/css/docs.css': '<%= yeoman.app %>/styleguide/assets/docs.scss'
-			 }
-			 }*/
 		},
 
 		// Renames files for browser caching purposes
+		// Until we have a proper flow for updating file refs, we dont cache-bust images nor fonts.
 		filerev: {
 			dist: {
 				src: [
 					'<%= yeoman.dist %>/scripts/{,*/}*.js',
 					'<%= yeoman.dist %>/styles/{,*/}*.css',
-					//'<%= yeoman.dist %>/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+					//'<%= yeoman.dist %>/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+					//'<%= yeoman.dist %>/assets/fonts/*'
 				]
 			}
 		},
@@ -309,7 +310,7 @@ module.exports = function (grunt) {
 			html: ['<%= yeoman.dist %>/{,*/}*.html'],
 			css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
 			options: {
-				assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/assets/images']
+				assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/assets/images']
 			}
 		},
 
@@ -319,14 +320,13 @@ module.exports = function (grunt) {
 					'.tmp/styles/main.css': ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/**/*.template.html']
 				},
 				options: {
+					ignore: ['.labels', '.selected', '.core-messages', '.reveal-modal', '.modal-open',
+						'.reveal-modal-bg', '.dialog', '.fade', '.in', '.large', '.dialog-footer',
+						'.dialog-h1', '.fadeOut', '.fadeIn', '.view', '.ng-move', '.ng-enter',
+						'.ng-leave', '.created_by_jQuery'],
 					csspath: '../.tmp/',
 					report: 'gzip'
 				}
-			}
-		},
-		uglify: {
-			options: {
-				mangle: false
 			}
 		},
 
@@ -344,15 +344,11 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		// uglify: {
-		//   dist: {
-		//     files: {
-		//       '<%= yeoman.dist %>/scripts/scripts.js': [
-		//         '<%= yeoman.dist %>/scripts/scripts.js'
-		//       ]
-		//     }
-		//   }
-		// },
+		uglify: {
+			options: {
+				mangle: false
+			}
+		},
 		// concat: {
 		//   dist: {}
 		// },
@@ -401,24 +397,24 @@ module.exports = function (grunt) {
 				dest: '.tmp/concat/scripts/templates.js',
 				options: {
 					usemin: 'scripts/scripts.js',
-					module: 'roadtodh',
+					module: 'roadtodhApp',
 					htmlmin: {
-						collapseBooleanAttributes:      false,
-						collapseWhitespace:             false,
-						removeAttributeQuotes:          false,
-						removeComments:                 false, // Only if you don't use comment directives!
-						removeEmptyAttributes:          false,
-						removeRedundantAttributes:      false,
-						removeScriptTypeAttributes:     false,
-						removeStyleLinkTypeAttributes:  false
+						collapseBooleanAttributes: false,
+						collapseWhitespace: false,
+						removeAttributeQuotes: false,
+						removeComments: false, // Only if you don't use comment directives!
+						removeEmptyAttributes: false,
+						removeRedundantAttributes: false,
+						removeScriptTypeAttributes: false,
+						removeStyleLinkTypeAttributes: false
 					}
 				}
 			}
 		},
 		ngconstant: {
 			options: {
-				name: 'roadtodh',
-				dest: '.tmp/concat/scripts/enviroment.js',
+				name: 'roadtodhApp',
+				dest: '<%= yeoman.dist %>/config/enviroment.js',
 				constants: {
 					APP_ENV: 'development'
 				}
@@ -465,10 +461,10 @@ module.exports = function (grunt) {
 						'*.html',
 						'views/{,*/}*.html',
 						'assets/images/{,*/}*.{webp}',
-						'assets/fonts/*.*',
+						'assets/fonts/*',
+						'assets/scripts/*',
 						'!assets/icons/raw',
-						'assets/icons/*.{svg,png}',
-						'models/countries/countries.json'
+						'assets/icons/*.{svg,png}'
 					]
 				}, {
 					expand: true,
@@ -517,7 +513,8 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'clean:server',
 			'wiredep',
-			// 'assemble',
+			// Disabled until Assemble.io handlebars-helpers are updated
+			//'assemble',
 			'concurrent:server',
 			'autoprefixer',
 			'connect:livereload',
@@ -539,9 +536,9 @@ module.exports = function (grunt) {
 		'concat',
 		'autoprefixer:dist',
 		'ngAnnotate',
-		//    'uncss',
+		//'uncss',
 		'copy:dist',
-		'cssmin:dist',
+		'cssmin',
 		'uglify',
 		'filerev',
 		'usemin'
