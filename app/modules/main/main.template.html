@@ -4,7 +4,7 @@
 			<div class="small-12 columns collapsed">
 				<ul class="thread-list">
 					<h3 ng-if="!main.posts.length">There is no posts, come back later</h3> <!-- This is only shown if no posts on the forum -->
-					<li ui-sref="postview/:postId" class="thread-list__item" ng-repeat="post in main.posts">
+					<li ui-sref="main.postview({ postId: post.$id })" class="thread-list__item" ng-repeat="post in main.posts">
 						<h4 class="title">{{post.subject}}</h4>
 						<span class="meta">Updated 2 minutes ago by | 20 comments</span>
 					</li>
@@ -12,6 +12,7 @@
 			</div>
 		</div>
 	</div>
-	<div ui-view="post"></div>
+	<div class="gsapify-router" ui-view="post"></div>
+	<div class="gsapify-router" ui-view="singlepost"></div>
 	<div ui-view="thread"></div>
 </div>

@@ -26,7 +26,6 @@
 
 // Wiredep:
 // bower:scss
-@import "../../bower_components/animate.css-scss/animate.scss";
 // endbower
 
 // Style Components (Uncomment the import statement below to get started)
@@ -35,6 +34,7 @@
 @import "base/icons";
 @import "base/typography";
 @import "base/fullscreen";
+@import "base/whitespace";
 /* ---> Do not delete this comment (base) <--- */
 // Elements
 @import "elements/loading-bar";

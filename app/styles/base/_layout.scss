@@ -27,7 +27,7 @@
 	padding-left: $sidebar-width;
 }
 
-.thread-area, .posting-area {
+.thread-area, .posting-area, .singleview {
 	float: left;
 }
 
@@ -38,5 +38,9 @@
 }
 
 .posting-area {
+	width: 60%;
+}
+
+.singleview {
 	width: 60%;
 }

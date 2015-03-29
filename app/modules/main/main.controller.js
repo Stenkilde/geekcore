@@ -13,7 +13,7 @@
 		.controller('Main', Main);
 
 	/* @ngInject */
-	function Main(Post, $location) {
+	function Main(Post, $location, $stateParams) {
 		/*jshint validthis: true */
 		var vm = this;
 

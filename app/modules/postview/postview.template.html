@@ -1,3 +1,9 @@
-<li ng-repeat="post in postview">
-    <h1>{{post.subject}}</h1>
-</li>
+<div class="singleview small-12 columns">
+    <div ng-repeat="post in postview">
+        <h1>{{post.subject}}</h1>
+        <div class="small-6 columns l-collapsed">
+            <p>{{post.body_text}}</p>
+
+        </div>
+    </div>
+</div>

@@ -41,8 +41,21 @@
         }
       };
 
+      var Postview = {
+        name: 'main.postview',
+        url: '/posts/:postId',
+        views: {
+          'singlepost@main': {
+            templateUrl: 'modules/postview/postview.template.html',
+            controller: 'Postview',
+            controllerAs: 'postview'
+          }
+        }
+      };
+
       $stateProvider.state(Main);
       $stateProvider.state(childPost);
       $stateProvider.state(childThread);
+      $stateProvider.state(Postview);
     });
 })();

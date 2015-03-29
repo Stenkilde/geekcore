@@ -27,6 +27,6 @@
     'angulartics.google.analytics',
     'hj.gsapifyRouter',
     'mm.foundation',
-	'firebase',
+	'firebase'
 	]);
 })();
