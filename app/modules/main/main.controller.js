@@ -13,7 +13,7 @@
 		.controller('Main', Main);
 
 	/* @ngInject */
-	function Main(Post, $location, $stateParams) {
+	function Main(Post, $state) {
 		/*jshint validthis: true */
 		var vm = this;
 
@@ -22,7 +22,7 @@
 
 		vm.submitPost = function () {
 			Post.create(vm.post).then(function(ref) {
-				$location.path('/posts/' + ref.name());
+				$state.go('main.postview', {postId: ref.name() });
 			});
 		};
 
