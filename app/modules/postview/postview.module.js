@@ -1,5 +1,5 @@
 (function () {
 	'use strict';
 
-	angular.module('geekcoreApp.Postview', []);
+	angular.module('roadtodhApp.Postview', []);
 })();

@@ -3,20 +3,19 @@
 
 	/**
 	 * @ngdoc function
-	 * @name roadtodhApp.factory:Auth
+	 * @name geekcoreApp.factory:Auth
 	 * @description
 	 * # Auth
-	 * Factory of the roadtodhApp
+	 * Factory of the geekcoreApp
 	 */
 	angular
 		.module('roadtodhApp')
 		.factory('Auth', Auth);
 
 	/* @ngInject */
-	function Auth(API_URL) {
-
-		var authRef = new Firebase(API_URL);
-
+	function Auth($firebaseAuth, API_URL) {
+		var ref = new Firebase(API_URL);
+		return $firebaseAuth(ref);
 	}
 
 })();

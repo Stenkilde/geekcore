@@ -43,7 +43,7 @@
 
       var Postview = {
         name: 'main.postview',
-        url: '/posts/:postId',
+        url: 'posts/:postId',
         views: {
           'singlepost@main': {
             templateUrl: 'modules/postview/postview.template.html',
